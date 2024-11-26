@@ -12,4 +12,4 @@ def matriz_a_coo(matriz):
                 filas.append(i)
                 columnas.append(j)
     
-    return FormatoCOO(valores, filas, columnas, (len(matriz), len(matriz[0]) if matriz else 0)) 
+    return FormatoCOO(valores, filas, columnas, (len(matriz), len(matriz[0]) )) 
