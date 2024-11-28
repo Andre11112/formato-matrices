@@ -14,4 +14,4 @@ class FormatoCOO:
     def __str__(self):
         
         valores_int = [int(valor) for valor in self.valores]
-        return f"Valores: {valores_int}\nFilas: {self.filas}\nColumnas: {self.columnas}"
+        return f"valores: {valores_int}\nfilas: {self.filas}\ncolumnas: {self.columnas}"
