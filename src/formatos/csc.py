@@ -15,4 +15,4 @@ class FormatoCSC:
 
     def __str__(self):
         valores_int = [int(valor) for valor in self.valores]
-        return f"valores: {valores_int}\nfilas: {self.filas}\nPivote de las Columnas: {self.p_columnas}"
+        return f"MATRIZ EN FORMATO CSC\nvalores: {valores_int}\nfilas: {self.filas}\nPivote de las Columnas: {self.p_columnas}"
