@@ -1,4 +1,4 @@
-from src.formatos.coo import FormatoCOO
+from src.formatos.formatocoo import FormatoCOO
 
 
 

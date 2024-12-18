@@ -4,7 +4,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from src.utils.lectura import leer_matriz_archivo
-from src.utils.matriz import matriz_a_coo, matriz_a_csc
+from src.utils.matriz import matriz_a_coo, matriz_a_csc, matriz_a_csr
 
 
 def menu_principal():
@@ -17,7 +17,7 @@ def menu_principal():
         
         if opcion == '1':
             nombre_archivo = input("Ingrese el nombre del archivo de la matriz: ")
-            #aqui añadimos la ruta con las carptas para solo poner el nombre
+            #aqui esta la ruta con las carptas para solo poner el nombre
             nombre_archivo = os.path.join('src', 'matrices_txt', nombre_archivo + '.txt') 
             matriz = leer_matriz_archivo(nombre_archivo)
             
@@ -25,7 +25,8 @@ def menu_principal():
                 print("\nSeleccione el formato para mostrar la matriz:")
                 print("1.Formato COO")
                 print("2.Formato CSC")
-                print("3.Volver al menú principal")
+                print("3.Formato CSR")
+                print("4.Volver al menú principal")
                 
                 formato_opcion = input("\nSeleccione una opción: ")
                 
@@ -36,7 +37,8 @@ def menu_principal():
                     csc = matriz_a_csc(matriz)
                     print(csc)
                 elif formato_opcion == '3':
-                    break
+                    csr = matriz_a_csr(matriz)
+                    print(csr)
                 else:
                     print("Opción no válida. Intente de nuevo.")
 
