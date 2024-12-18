@@ -1,5 +1,6 @@
 from src.formatos.formatocoo import FormatoCOO
-
+from src.formatos.formatocsr import FormatoCSR
+from src.formatos.formatocsc import FormatoCSC
 
 
 

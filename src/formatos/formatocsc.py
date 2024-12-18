@@ -18,6 +18,12 @@ class FormatoCSC:
                 return self.valores[index]
         return 0
 
+    def obtener_fila(self, i):
+        return [self.obtener_elemento(i, j) for j in range(self.shape[1])]
+
+    def obtener_columna(self, j):
+        return [self.obtener_elemento(i, j) for i in range(self.shape[0])]
+
     def __str__(self):
         valores_int = [int(valor) for valor in self.valores]
         return f"MATRIZ EN FORMATO CSC\nvalores: {valores_int}\nfilas: {self.filas}\nPivote de las Columnas: {self.p_columnas}"
