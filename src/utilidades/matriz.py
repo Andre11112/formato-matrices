@@ -1,3 +1,8 @@
+"""
+modulo para la conversión de matrices a diferentes formatos de almacenamiento disperso
+implementa las conversiones a los formatos
+"""
+
 from src.formatos.formatocoo import FormatoCOO
 from src.formatos.formatocsc import FormatoCSC
 from src.formatos.formatocsr import FormatoCSR
@@ -10,9 +15,8 @@ def matriz_a_coo(matriz):
     filas = []
     columnas = []
 
-    """
-    se recorre la matriz y se guardan los valores, filas y columnas en las listas
-    """
+    """Recorremos la matriz para extraer solo los elementos no cero
+     y sus respectivas posiciones i yj"""
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
             if matriz[i][j] != 0:  
@@ -32,9 +36,7 @@ def matriz_a_csc(matriz):
     num_filas = len(matriz)
     num_columnas = len(matriz[0]) if num_filas > 0 else 0
 
-    """
-    se recorre la matriz y se guardan los valores, filas y columnas en las listas
-    """
+    """Recorremos por columnas para construir el formato CSC"""
     for j in range(num_columnas):
         for i in range(num_filas):
             if matriz[i][j] != 0:
@@ -65,9 +67,10 @@ def matriz_a_csr(matriz):
             if matriz[i][j] != 0:
                 valores.append(matriz[i][j])
                 columnas.append(j)
+        """ Agregamos la posición donde termina cada fila"""
         p_filas.append(len(valores))
     
-    return FormatoCSR(valores, columnas, p_filas, (num_filas, num_columnas)) 
+    return FormatoCSR(valores, columnas, p_filas, (num_filas, num_columnas))
 
     
 

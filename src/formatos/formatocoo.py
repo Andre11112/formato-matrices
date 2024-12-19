@@ -1,7 +1,9 @@
+"""
+Esta es la implemntacion del formato COO para matrices.
+guardamos los valores diferentes de cero junto con sus posiciones fila,columna
+"""
+
 class FormatoCOO:
-    """
-    constructor de la clase FormatoCOO
-    """
     def __init__(self, valores, filas, columnas, shape):
         self.valores = valores
         self.filas = filas
@@ -20,15 +22,16 @@ class FormatoCOO:
         return 0
 
     def obtener_fila(self, i):
+        """da la la fila i va elemnto por elemento"""
         return [self.obtener_elemento(i, j) for j in range(self.shape[1])]
 
     def obtener_columna(self, j):
+        """devuelve la fila j va elemento por elemenento"""
         return [self.obtener_elemento(i, j) for i in range(self.shape[0])]
 
-    """
-    metodo para imprimir la matriz en formato COO
-    """
+    
     def __str__(self):
+        """print al formato de manera organizada """
         
         valores_int = [int(valor) for valor in self.valores]
         return f"MATRIZ EN FORMATO COO\nvalores: {valores_int}\nfilas: {self.filas}\ncolumnas: {self.columnas}"

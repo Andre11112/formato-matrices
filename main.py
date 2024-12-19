@@ -1,10 +1,16 @@
+"""Jhonatan Andres Diosa Garzon 2259535
+Este modulo implementa el menu principal para la manipulacion de matrices dispersas 
+permite cargar matrices desde archivos y convertirlas a difrentes formatos COO, CSC, CSR
+tambien proporciona funcionalidades para consultar elementos, filas y columnas especificas
+"""
+
 import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.utils.lectura import leer_matriz_archivo
-from src.utils.matriz import matriz_a_coo, matriz_a_csc, matriz_a_csr
+from src.utilidades.lectura import leer_matriz_archivo
+from src.utilidades.matriz import matriz_a_coo, matriz_a_csc, matriz_a_csr
 
 
 def menu_principal():
@@ -15,13 +21,13 @@ def menu_principal():
     while True:
         print("\n=== MENÚ MATRICES DISPERSAS ===")
         print("1. Cargar matriz desde archivo")
-        print("2. Salir")
+        
         
         opcion = input("\nSeleccione una opción: ")
         
         if opcion == '1':
+            # Proceso de carga de matriz desde archivo
             nombre_archivo = input("Ingrese el nombre del archivo de la matriz: ")
-            #aqui esta la ruta con las carptas para solo poner el nombre
             nombre_archivo = os.path.join('src', 'matrices_txt', nombre_archivo + '.txt') 
             matriz = leer_matriz_archivo(nombre_archivo)
             
@@ -63,13 +69,16 @@ def menu_principal():
                     opcion_detalle = input("\nSeleccione una opción: ")
                     
                     if opcion_detalle == '1':
+                        # Obtención de elemento específico
                         i = int(input("Ingrese el índice de la fila (i): "))
                         j = int(input("Ingrese el índice de la columna (j): "))
                         print(f"Elemento en ({i}, {j}): {formato_seleccionado.obtener_elemento(i, j)}")
                     elif opcion_detalle == '2':
+                        # Obtención de fila completa
                         i = int(input("Ingrese el índice de la fila (i): "))
                         print(f"Fila {i}: {formato_seleccionado.obtener_fila(i)}")
                     elif opcion_detalle == '3':
+                        # Obtención de columna completa
                         j = int(input("Ingrese el índice de la columna (j): "))
                         print(f"Columna {j}: {formato_seleccionado.obtener_columna(j)}")
                     elif opcion_detalle == '4':
