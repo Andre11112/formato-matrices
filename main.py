@@ -1,7 +1,5 @@
 """Jhonatan Andres Diosa Garzon 2259535
-Este modulo implementa el menu principal para la manipulacion de matrices dispersas 
-permite cargar matrices desde archivos y convertirlas a difrentes formatos COO, CSC, CSR
-tambien proporciona funcionalidades para consultar elementos, filas y columnas especificas
+
 """
 
 import sys
@@ -26,7 +24,7 @@ def menu_principal():
         opcion = input("\nSeleccione una opción: ")
         
         if opcion == '1':
-            # Proceso de carga de matriz desde archivo
+            """se carga el archivo txt"""
             nombre_archivo = input("Ingrese el nombre del archivo de la matriz: ")
             nombre_archivo = os.path.join('src', 'matrices_txt', nombre_archivo + '.txt') 
             matriz = leer_matriz_archivo(nombre_archivo)
